@@ -13,7 +13,13 @@ class AuthGoogle {
           callbackURL: process.env.URL as string,
           passReqToCallback: true,
         },
-        function (request, accessToken, refreshToken, profile, done) {
+        function (
+          request: any,
+          accessToken: any,
+          refreshToken: any,
+          profile: any,
+          done: any
+        ) {
           return done(null, profile);
         }
       )

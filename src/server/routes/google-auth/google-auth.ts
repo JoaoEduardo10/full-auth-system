@@ -1,9 +1,9 @@
-import { Router } from "express";
+import { RequestHandler, Router } from "express";
 import passport from "passport";
 
 const googleRouter = Router();
 
-const islogged = (req, res, next) => {
+const islogged: RequestHandler = (req, res, next) => {
   req.user ? next() : res.sendStatus(401);
 };
 
@@ -25,7 +25,7 @@ googleRouter.get("/auth/google/success", islogged, (req, res) => {
 });
 
 googleRouter.get("/auth/google/failures", (req, res) => {
-  res.send("Deu um error ao tenta logar");
+  res.sendStatus(500);
 });
 
 googleRouter.get("/logout", (req, res, next) => {
