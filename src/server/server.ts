@@ -1,5 +1,5 @@
 import express from "express";
-import { AuthGoogle } from "../auth/google-auth";
+import { AuthGoogle } from "../auth/auth-google";
 import "dotenv/config";
 import passport from "passport";
 import session from "express-session";
