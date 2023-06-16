@@ -6,8 +6,11 @@ import session from "express-session";
 import { router } from "./router";
 import { configurePassport } from "../config/passport-config";
 import { globalsErrors } from "./middlewares/globals-errors";
+import cors from "cors";
 
 const server = express();
+
+server.use(cors());
 
 configurePassport();
 
