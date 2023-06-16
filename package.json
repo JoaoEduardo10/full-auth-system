@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "@prisma/client": "4.15.0",
