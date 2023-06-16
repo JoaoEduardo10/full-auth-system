@@ -1,10 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { RequestHandler, Router } from "express";
 import passport from "passport";
+import { Not_Fould, Unauthorezid } from "../../errors/api-errors";
 
 const googleRouter = Router();
 
 const islogged: RequestHandler = (req, res, next) => {
-  req.user ? next() : res.sendStatus(401);
+  if (req.user) {
+    next();
+  }
+
+  throw new Unauthorezid("Não autorizado");
 };
 
 googleRouter.get(
@@ -24,8 +30,8 @@ googleRouter.get("/auth/google/success", islogged, (req, res) => {
   res.send(req.user);
 });
 
-googleRouter.get("/auth/google/failures", (req, res) => {
-  res.sendStatus(500);
+googleRouter.get("/auth/google/failures", (_req, _res) => {
+  throw new Not_Fould("Errro no servido");
 });
 
 googleRouter.get("/logout", (req, res, next) => {
