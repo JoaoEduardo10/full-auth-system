@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  postgres:
+    container_name: postgres-full-auth-system
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: full-auth-system
+    volumes:
+      - ./data-system:/data/postgres
+    ports:
+      - "5432:5432"
