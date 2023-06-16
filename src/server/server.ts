@@ -1,16 +1,15 @@
 import express from "express";
-import { AuthGoogle } from "../auth/auth-google";
 import "dotenv/config";
 import passport from "passport";
 import session from "express-session";
 import { router } from "./router";
-
-const authGoogle = new AuthGoogle();
+import { configurePassport } from "../config/passport-config";
 
 const server = express();
 
+configurePassport();
+
 server.use(express.json());
-authGoogle.auth();
 server.use(
   session({
     secret: process.env.SESSION_SECRET as string,
