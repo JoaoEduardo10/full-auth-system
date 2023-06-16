@@ -3,7 +3,7 @@ import { UserDTO } from "../interface/interfaceDTO";
 import { ICreateUserRepository } from "./protocols";
 import { Not_Fould } from "../errors/api-errors";
 
-export class PostgresCreateUser implements ICreateUserRepository {
+export class PrismaCreateUserRepository implements ICreateUserRepository {
   private User = new PrismaClient().user;
 
   async create(params: UserDTO): Promise<User> {
