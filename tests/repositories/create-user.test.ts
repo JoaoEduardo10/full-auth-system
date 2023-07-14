@@ -1,3 +1,7 @@
+/**
+ * @jest-environment ./tests/prisma-environment-jest
+ */
+
 import { PrismaCreateUserRepository } from "../../src/server/repositories/create-user";
 
 describe("PrismaCreateUser", () => {
@@ -8,7 +12,7 @@ describe("PrismaCreateUser", () => {
       email: "test@gmail.com",
       name: "test",
       status: "authenticated",
-      password: "test1234",
+      password: "test12345",
     });
 
     expect(user).toBeTruthy();
