@@ -2,6 +2,7 @@
 import { RequestHandler, Router } from "express";
 import passport from "passport";
 import { Not_Fould } from "../../errors/api-errors";
+import { userGoogleRouter } from "../../usecase/create-user-google";
 
 const googleRouter = Router();
 
@@ -22,9 +23,7 @@ googleRouter.get(
   })
 );
 
-googleRouter.get("/auth/google/success", islogged, (req, res) => {
-  res.status(200).json("ok");
-});
+googleRouter.get("/auth/google/success", islogged, userGoogleRouter);
 
 googleRouter.get("/auth/google/failures", (_req, _res) => {
   throw new Not_Fould("Errro no servido");
