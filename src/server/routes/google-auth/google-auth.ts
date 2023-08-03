@@ -3,6 +3,7 @@ import { RequestHandler, Router } from "express";
 import passport from "passport";
 import { Not_Fould } from "../../errors/api-errors";
 import { userGoogleRouter } from "../../usecase/create-user-google";
+import { googleAuthMiddleware } from "../../middlewares/google-auth/google-auth-middleware";
 
 const googleRouter = Router();
 
@@ -23,7 +24,12 @@ googleRouter.get(
   })
 );
 
-googleRouter.get("/auth/google/success", islogged, userGoogleRouter);
+googleRouter.get(
+  "/auth/google/success",
+  islogged,
+  googleAuthMiddleware,
+  userGoogleRouter
+);
 
 googleRouter.get("/auth/google/failures", (_req, _res) => {
   throw new Not_Fould("Errro no servido");
