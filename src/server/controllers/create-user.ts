@@ -4,8 +4,11 @@ import { ICreateUserRepository } from "../repositories/protocols";
 import { ApiRequest, ApiResponse, IControllers } from "./protocols";
 import { createCrypt } from "../utils/bcryptjs";
 import { createJwt } from "../utils/jsonwebtoken";
+import { prisma } from "../../database/prisma";
 
 export class CreateUserController implements IControllers {
+  private User = prisma.user;
+
   constructor(private readonly createUserRepository: ICreateUserRepository) {}
 
   async handle(req: ApiRequest): Promise<ApiResponse<User>> {
