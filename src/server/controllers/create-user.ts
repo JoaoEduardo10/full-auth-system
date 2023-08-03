@@ -9,10 +9,10 @@ export class CreateUserController implements IControllers {
   constructor(private readonly createUserRepository: ICreateUserRepository) {}
 
   async handle(req: ApiRequest): Promise<ApiResponse<User>> {
-    const { user: userReq, body } = req;
+    const { user: user_req, body } = req;
 
-    if (userReq) {
-      const { displayName: name, email } = userReq;
+    if (user_req) {
+      const { displayName: name, email } = user_req;
 
       const password = await createCrypt(email);
 
