@@ -1,1 +1,1 @@
-console.log("passou aque");
+import "dotenv/config";
