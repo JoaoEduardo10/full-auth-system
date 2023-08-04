@@ -2,7 +2,7 @@
  * @jest-environment ./tests/prisma-environment-jest
  */
 
-import { PrismaCreateUserRepository } from "../../src/server/repositories/create-user";
+import { PrismaCreateUserRepository } from "../../../src/server/repositories/create-user";
 
 describe("PrismaCreateUser", () => {
   it("should create a user", async () => {
