@@ -2,7 +2,7 @@
 import { RequestHandler, Router } from "express";
 import passport from "passport";
 import { Not_Fould } from "../../errors/api-errors";
-import { userGoogleRouter } from "../../usecase/create-user-google";
+import { userGoogleRouter } from "../../usecase/create-user-google/create-user-google";
 import { googleAuthMiddleware } from "../../middlewares/google-auth/google-auth-middleware";
 
 const googleRouter = Router();
