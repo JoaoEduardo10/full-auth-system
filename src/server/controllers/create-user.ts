@@ -4,9 +4,14 @@ import { ICreateUserRepository } from "../repositories/protocols";
 import { ApiRequest, ApiResponse, IControllers } from "./protocols";
 import { createCrypt } from "../utils/bcryptjs";
 import { createJwt } from "../utils/jsonwebtoken";
+import { EmailSender } from "../../services/email-sender";
 
 export class CreateUserController implements IControllers {
-  constructor(private readonly createUserRepository: ICreateUserRepository) {}
+  private emailSend: EmailSender;
+
+  constructor(private readonly createUserRepository: ICreateUserRepository) {
+    this.emailSend = new EmailSender();
+  }
 
   async handle(req: ApiRequest): Promise<ApiResponse<User>> {
     const { user: user_req, body } = req;
@@ -45,6 +50,15 @@ export class CreateUserController implements IControllers {
       name,
       password: passwordHash,
       status,
+    });
+
+    const url = `${process.env.API_URL}/user/validator/${user.id}`;
+
+    await this.emailSend.sendEmail({
+      to: user.email,
+      subject: "Validação de Email",
+      html: `<h1> clicle no lique abaixo para validaçao o seu email </h1> <p> <a  href=${url}>${url}</a>`,
+      text: `clicle no link para a validaçao ${url}`,
     });
 
     return {
