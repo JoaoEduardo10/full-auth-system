@@ -1,8 +1,8 @@
 import { PrismaClient, User } from "@prisma/client";
-import { UserDTO } from "../interface/interfaceDTO";
-import { ICreateUserRepository } from "./protocols";
-import { Not_Fould } from "../errors/api-errors";
-import { prisma } from "../../database/prisma";
+import { UserDTO } from "../../interface/interfaceDTO";
+import { ICreateUserRepository } from "../protocols";
+import { Not_Fould } from "../../errors/api-errors";
+import { prisma } from "../../../database/prisma";
 
 export class PrismaCreateUserRepository implements ICreateUserRepository {
   private User = prisma.user;

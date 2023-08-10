@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { PrismaCreateUserRepository } from "../../repositories/create-user";
+import { PrismaCreateUserRepository } from "../../repositories/create-user/create-user";
 import { CreateUserController } from "../../controllers/create-user/create-user";
 
 export class CreateUserRouter {

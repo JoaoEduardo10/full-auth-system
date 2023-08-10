@@ -13,4 +13,8 @@ userAuth.post(
   createUserRouter.create
 );
 
+userAuth.put("/user/validator/:userId", (req, res) => {
+  res.send("ok");
+});
+
 export { userAuth };
