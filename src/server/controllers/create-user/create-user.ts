@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { User } from "@prisma/client";
-import { ICreateUserRepository } from "../../repositories/protocols";
+import { ICreateUserRepository } from "../../repositories/create-user/protocols";
 import { ApiRequest, ApiResponse, IControllers } from "../protocols";
 import { createCrypt } from "../../utils/bcryptjs";
 import { createJwt } from "../../utils/jsonwebtoken";

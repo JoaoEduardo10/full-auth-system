@@ -1,6 +1,6 @@
 import { PrismaClient, User } from "@prisma/client";
 import { UserDTO } from "../../interface/interfaceDTO";
-import { ICreateUserRepository } from "../protocols";
+import { ICreateUserRepository } from "./protocols";
 import { Not_Fould } from "../../errors/api-errors";
 import { prisma } from "../../../database/prisma";
 
