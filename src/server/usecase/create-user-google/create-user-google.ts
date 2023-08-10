@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { PrismaCreateUserRepository } from "../../repositories/create-user";
-import { CreateUserController } from "../../controllers/create-user";
+import { CreateUserController } from "../../controllers/create-user/create-user";
 
 export const userGoogleRouter: RequestHandler = async (req, res) => {
   const createUserRepository = new PrismaCreateUserRepository();

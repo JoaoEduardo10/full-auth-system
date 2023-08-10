@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { User } from "@prisma/client";
-import { ICreateUserRepository } from "../repositories/protocols";
-import { ApiRequest, ApiResponse, IControllers } from "./protocols";
-import { createCrypt } from "../utils/bcryptjs";
-import { createJwt } from "../utils/jsonwebtoken";
-import { EmailSender } from "../../services/email-sender";
+import { ICreateUserRepository } from "../../repositories/protocols";
+import { ApiRequest, ApiResponse, IControllers } from "../protocols";
+import { createCrypt } from "../../utils/bcryptjs";
+import { createJwt } from "../../utils/jsonwebtoken";
+import { EmailSender } from "../../../services/email-sender";
 
 export class CreateUserController implements IControllers {
   private emailSend: EmailSender;
