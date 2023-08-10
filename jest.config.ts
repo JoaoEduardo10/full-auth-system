@@ -6,7 +6,10 @@
 export default {
   bail: 1,
   collectCoverage: true,
-  collectCoverageFrom: ["src/server/repositories/*.ts"],
+  collectCoverageFrom: [
+    "src/server/repositories/**/*.ts",
+    "src/server/controllers/**/*.ts",
+  ],
   coverageDirectory: "coverage",
   coveragePathIgnorePatterns: ["/node_modules/", "/protocols.ts"],
   coverageProvider: "v8",

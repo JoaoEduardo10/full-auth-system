@@ -1,6 +1,6 @@
 import { User } from "@prisma/client";
 import { UserDTO } from "../../../src/server/interface/interfaceDTO";
-import { ICreateUserRepository } from "../../../src/server/repositories/protocols";
+import { ICreateUserRepository } from "../../../src/server/repositories/create-user/protocols";
 import { v4 as uuid } from "uuid";
 
 export class CreateUserInMemoryRepository implements ICreateUserRepository {
