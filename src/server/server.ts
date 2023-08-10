@@ -7,10 +7,13 @@ import { router } from "./router";
 import { configurePassport } from "../config/passport-config";
 import { globalsErrors } from "./middlewares/globals-errors";
 import cors from "cors";
+import path from "path";
 
 const server = express();
 
 server.use(cors());
+
+server.use(express.static(path.join(__dirname, "..", "..", "public")));
 
 configurePassport();
 
