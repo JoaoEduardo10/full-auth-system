@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { CreateUserRouter } from "../../usecase/create-user/create-user";
 import { CreateUserAuthMiddlware } from "../../middlewares/user-auth/user-auth";
+import { UserAuthenticationRouter } from "../../usecase/user-authtntication/user-authentication";
+import { UserAuthenticationMiddleware } from "../../middlewares/user-auth/authentication-user";
 
 const userAuth = Router();
 
@@ -13,8 +15,13 @@ userAuth.post(
   createUserRouter.create
 );
 
-userAuth.put("/user/validator/:userId", (req, res) => {
-  res.send("ok");
-});
+const userAuthenticationRouter = new UserAuthenticationRouter();
+const userAuthenticationMiddleware = new UserAuthenticationMiddleware();
+
+userAuth.get(
+  "/user/validator/:userId",
+  userAuthenticationMiddleware.middleware,
+  userAuthenticationRouter.authentication
+);
 
 export { userAuth };
