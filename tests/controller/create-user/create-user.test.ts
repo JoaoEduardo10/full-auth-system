@@ -1,6 +1,6 @@
-import { CreateUserController } from "../../src/server/controllers/create-user/create-user";
-import { ApiRequest } from "../../src/server/controllers/protocols";
-import { CreateUserInMemoryRepository } from "../repositories/create-user/create-user-in-memory";
+import { CreateUserController } from "../../../src/server/controllers/create-user/create-user";
+import { ApiRequest } from "../../../src/server/controllers/protocols";
+import { CreateUserInMemoryRepository } from "../../repositories/create-user/create-user-in-memory";
 
 const mockUserApiRequest: ApiRequest = {
   user: {
