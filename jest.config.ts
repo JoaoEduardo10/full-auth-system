@@ -9,6 +9,8 @@ export default {
   collectCoverageFrom: [
     "src/server/repositories/**/*.ts",
     "src/server/controllers/**/*.ts",
+    "src/server/middlewares/user-auth/*.ts",
+    "src/server/usecase/user-authentication/*.ts",
   ],
   coverageDirectory: "coverage",
   coveragePathIgnorePatterns: ["/node_modules/", "/protocols.ts"],
