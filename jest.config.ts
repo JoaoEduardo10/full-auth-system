@@ -11,6 +11,7 @@ export default {
     "src/server/controllers/**/*.ts",
     "src/server/middlewares/user-auth/*.ts",
     "src/server/usecase/user-authentication/*.ts",
+    "src/server/usecase/create-user/*.ts",
   ],
   coverageDirectory: "coverage",
   coveragePathIgnorePatterns: ["/node_modules/", "/protocols.ts"],
