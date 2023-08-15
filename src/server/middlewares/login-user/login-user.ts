@@ -25,19 +25,23 @@ class LoginUserMiddleware {
     const user = await user_prisma.findUnique({ where: { email } });
 
     if (!user) {
-      throw new Bad_Request("Email invalido!");
+      throw new Bad_Request(
+        "Dados incorretos, por favor, verifique os dados inseridos e corrija-os"
+      );
     }
 
     const isPassword = await comparePassowrd(password, user.password);
 
     if (!isPassword) {
-      throw new Bad_Request("Senha incorreta!");
+      throw new Bad_Request(
+        "Dados incorretos, por favor, verifique os dados inseridos e corrija-os"
+      );
     }
 
     const status = user.status;
 
     if (status == "notAuthenticated") {
-      throw new Bad_Request("usuario não validado. Por favo valide seu email");
+      throw new Bad_Request("usuario não validado");
     }
 
     next();
